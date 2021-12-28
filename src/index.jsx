@@ -1,10 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './pages/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+
+import Home from './pages/Home';
+import Survey from './pages/Survey';
+import Header from './components/Header';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/survey">
+          <Survey />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 );
